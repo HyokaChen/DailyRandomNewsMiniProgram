@@ -1,0 +1,42 @@
+<!--index.wxml-->
+
+<view wx:if="{{ showLoading }}" class="van-skeleton van-skeleton--animate">
+	<view
+	 wx:for="{{row}}"
+	 wx:key="index"
+	 wx:for-index="index"
+	 class="row-class van-skeleton__row"
+	/>
+</view>
+<view wx:else class="van-skeleton__content ">
+	<x-scroll-view class="container" nomore="{{!hasMore}}" style="display: {{previewing ? 'block' : 'none'}};">
+		<block
+		 wx:for="{{newsList}}"
+		 wx:for-item="item"
+		 wx:for-index="itemIdx"
+		 wx:key="itemIdx"
+		>
+			<van-card
+			 title="{{item.title}}"
+			 thumb="{{item.imageSrc}}"
+			 desc="{{item.description}}"
+			 bindtap="loadNewsDetail"
+			 data-index="{{itemIdx}}"
+			/>
+		</block>
+		<!-- <block wx:if="{{hasMore}}">
+			<van-loading
+			 color="#000000"
+			 text-size="20rpx"
+			 size="24rpx"
+			 vertical
+			 hidden="{{ !showLoadMore }}"
+			>正在加载更多...
+			</van-loading>
+		</block>
+		<block wx:else>
+			<van-divider contentPosition="center">╮(￣▽￣)╭</van-divider>
+		</block> -->
+	</x-scroll-view>
+</view>
+

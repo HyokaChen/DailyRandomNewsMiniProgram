@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/news/news"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "每日随机资讯",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 12000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

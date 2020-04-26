@@ -1,0 +1,53 @@
+/**index.wxss**/
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.van-skeleton {
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin-top: 20rpx;
+    padding: 0 16px;
+    flex-direction: column;
+    padding: var(--skeleton-padding, 0 16px)
+}
+
+.van-skeleton__content {
+    -webkit-flex: 1;
+    flex: 1
+}
+
+.van-skeleton__row {
+    height: 400rpx;
+    height: var(--skeleton-row-height, 400rpx);
+    background-color: #f2f3f5;
+    background-color: var(--skeleton-row-background-color, #f2f3f5)
+}
+
+
+.van-skeleton__row:not(:first-child) {
+    margin-top: 12px;
+    margin-top: var(--skeleton-row-margin-top, 12px)
+}
+
+
+.van-skeleton--animate {
+    -webkit-animation: van-skeleton-blink 1.2s ease-in-out infinite;
+    animation: van-skeleton-blink 1.2s ease-in-out infinite
+}
+
+@-webkit-keyframes van-skeleton-blink {
+    50% {
+        opacity: .5
+    }
+}
+
+@keyframes van-skeleton-blink {
+    50% {
+        opacity: .5
+    }
+}

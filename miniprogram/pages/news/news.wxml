@@ -1,0 +1,14 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+	<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	<button
+	 plain
+	 size="mini"
+	 type="primary"
+	 style="display: {{!showLoading ? 'inline-flex': 'none'}}"
+	 bindtap="copyToClipboard"
+	>拷贝原文链接
+	</button>
+</view>
+<van-loading color="#000000" size="80rpx" hidden="{{ !showLoading }}" />
+
