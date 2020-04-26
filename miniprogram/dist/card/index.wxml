@@ -1,0 +1,24 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
+<view class="custom-class van-card" >
+  <view class="{{ utils.bem('card__header', { center: centered }) }}">
+    <view class="van-card__thumb" >
+      <image
+        wx:if="{{ thumb }}"
+        src="{{ thumb }}"
+        mode="{{ thumbMode }}"
+        lazy-load="{{ lazyLoad }}"
+        class="van-card__img thumb-class"
+      />
+      <slot name="thumb" />
+    </view>
+
+    <view class="van-card__content">
+      <view wx:if="{{ title }}" class="van-card__title title-class">{{ title }}</view>
+      <slot wx:else name="title" />
+
+      <view wx:if="{{ desc }}" class="van-card__desc desc-class van-multi-ellipsis--l3">{{ desc }}</view>
+      <slot wx:else name="desc" />
+    </view>
+  </view>
+</view>
