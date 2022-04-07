@@ -10,7 +10,6 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    margin-top: 20rpx;
     padding: 0 16px;
     flex-direction: column;
     padding: var(--skeleton-padding, 0 16px)
@@ -18,7 +17,13 @@
 
 .van-skeleton__content {
     -webkit-flex: 1;
-    flex: 1
+    flex: 1;
+}
+.van-skeleton-loading{
+    background-color: #ffffff;
+    padding-top: 20rpx;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 .van-skeleton__row {

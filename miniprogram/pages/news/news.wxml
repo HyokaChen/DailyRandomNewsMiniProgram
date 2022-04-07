@@ -5,10 +5,14 @@
 	 plain
 	 size="mini"
 	 type="primary"
-	 style="display: {{!showLoading ? 'inline-flex': 'none'}}"
+	 style="display: {{!showLoading ? 'inline-flex': 'none'}};margin-top: 20rpx;"
 	 bindtap="copyToClipboard"
 	>拷贝原文链接
 	</button>
+	<view class="footer"  style="display: {{!showLoading ? 'inline-flex': 'none'}}">
+		<button open-type="share" class="footer-share"><van-icon name="share-o" />分享</button>		
+		<view class="author">作者：EmptyChan</view>
+	</view>
 </view>
 <van-loading color="#000000" size="80rpx" hidden="{{ !showLoading }}" />
 

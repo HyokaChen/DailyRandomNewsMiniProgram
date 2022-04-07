@@ -6,6 +6,37 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 20rpx;
     padding: 10rpx;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16rpx;
+    padding-bottom: 60rpx;
+}
+.footer-share{
+    width: 96rpx;
+    background-color:#efeff4;
+    font-size: 14px;
+}
+.author{
+    width: 226rpx;
+    font-size: 14px;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    background-color: inherit;
+    position: static;
+}
+ 
+button:after {
+    content: none;
+}
+ 
+button::after {
+    border: none;
 }

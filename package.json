@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@vant/weapp": "^1.9.2"
+  },
+  "name": "dailyrandomnewsminiprogram",
+  "description": "## 每日随机资讯的小程序源代码",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyokaChen/DailyRandomNewsMiniProgram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HyokaChen/DailyRandomNewsMiniProgram/issues"
+  },
+  "homepage": "https://github.com/HyokaChen/DailyRandomNewsMiniProgram#readme"
+}

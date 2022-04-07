@@ -26,6 +26,7 @@ view {
     display: inline;
     margin: 0;
     padding: 0;
+    word-break: break-all;
 }
 
 /*//标题 */
@@ -152,9 +153,11 @@ view {
 }
 
 .wxParse-a {
-    color: #006bde;
+    /* color: #006bde; */
+    color: #333333;
     word-break: break-all;
     overflow: auto;
+    -webkit-overflow-scrolling: touch
 }
 
 .wxParse-video {

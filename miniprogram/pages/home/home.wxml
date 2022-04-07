@@ -1,28 +1,12 @@
 <!--index.wxml-->
-
-<view wx:if="{{ showLoading }}" class="van-skeleton van-skeleton--animate">
-	<view
-	 wx:for="{{row}}"
-	 wx:key="index"
-	 wx:for-index="index"
-	 class="row-class van-skeleton__row"
-	/>
+<!-- 骨架屏加载 -->
+<view wx:if='{{showLoading}}' class="van-skeleton-loading">
+	<van-skeleton  row="26" row-width="{{rows}}" />
 </view>
 <view wx:else class="van-skeleton__content ">
 	<x-scroll-view class="container" nomore="{{!hasMore}}" style="display: {{previewing ? 'block' : 'none'}};">
-		<block
-		 wx:for="{{newsList}}"
-		 wx:for-item="item"
-		 wx:for-index="itemIdx"
-		 wx:key="itemIdx"
-		>
-			<van-card
-			 title="{{item.title}}"
-			 thumb="{{item.imageSrc}}"
-			 desc="{{item.description}}"
-			 bindtap="loadNewsDetail"
-			 data-index="{{itemIdx}}"
-			/>
+		<block wx:for="{{newsList}}" wx:for-item="item" wx:for-index="itemIdx" wx:key="itemIdx">
+			<van-card title="{{item.title}}" thumb="{{item.imageSrc}}" desc="{{item.description}}" bindtap="loadNewsDetail" data-index="{{itemIdx}}" />
 		</block>
 		<!-- <block wx:if="{{hasMore}}">
 			<van-loading
@@ -39,4 +23,6 @@
 		</block> -->
 	</x-scroll-view>
 </view>
-
+<!-- <view wx:if="{{ showLoading }}" class="van-skeleton van-skeleton--animate">
+	<view wx:for="{{row}}" wx:key="index" wx:for-index="index" class="row-class van-skeleton__row" />
+</view> -->

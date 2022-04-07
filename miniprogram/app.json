@@ -4,7 +4,7 @@
     "pages/news/news"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "每日随机资讯",
     "navigationBarTextStyle": "black"

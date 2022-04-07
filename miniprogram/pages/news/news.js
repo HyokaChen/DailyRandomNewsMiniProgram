@@ -10,6 +10,17 @@ Page({
         article: '',
         showLoading: true
     },
+    //页面收藏方法
+    onAddToFavorites(res) {
+        // webview 页面返回 webViewUrl
+        console.log('webViewUrl: ', res, this.data.article)
+        let url = this.data.url
+        return {
+            title: this.data.title,
+            imageUrl: this.data.article.imageUrls[0],
+            query: `url=${url}&title=${this.data.title}`,
+        }
+    },
     copyToClipboard() {
         wx.setClipboardData({
             data: this.data.url,
@@ -39,45 +50,53 @@ Page({
             }
         });
     },
-    loadNews() {
+    loadNews(query) {
         const eventChannel = this.getOpenerEventChannel();
         let that = this;
         // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-        eventChannel.on('acceptDataFromOpenedPage', function (data) {
-            that.setData({
-                url: data.url,
-                title: data.title
+        console.log('eventChannel', eventChannel, query)
+        if (!util.isEmpty(eventChannel)) {
+            eventChannel.on('acceptDataFromOpenedPage', function (data) {
+                that.loadData(data, that)
             });
-            wx.setNavigationBarTitle({
-                title: that.data.title
-            });
-            wx.getStorage({
-                key: that.data.title,
-                success: function (res) {
-                    // success
-                    console.log('from storage...');
-                    that.newsRespHandler(res.data, that);
+        } else {
+            that.loadData(query, that)
+        }
+        this.setData({
+            showLoading: true
+        });
+    },
+    loadData(data, that) {
+        that.setData({
+            url: data.url,
+            title: data.title
+        });
+        wx.setNavigationBarTitle({
+            title: that.data.title
+        });
+        wx.getStorage({
+            key: that.data.title,
+            success: function (res) {
+                // success
+                console.log('from storage...');
+                that.newsRespHandler(res.data, that);
+                that.setData({
+                    showLoading: false
+                });
+            },
+            fail: function () {
+                // fail
+                console.log('from network...');
+                that.fetchNews(that.data.url).then((result) => {
+                    let resp = result.result;
+                    that.newsRespHandler(resp, that);
                     that.setData({
                         showLoading: false
                     });
-                },
-                fail: function () {
-                    // fail
-                    console.log('from network...');
-                    that.fetchNews(that.data.url).then((result) => {
-                        let resp = result.result;
-                        that.newsRespHandler(resp, that);
-                        that.setData({
-                            showLoading: false
-                        });
-                    }).catch(err => {
-                        console.log(err);
-                    });
-                }
-            });
-        });
-        this.setData({
-            showLoading: true
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
         });
     },
     newsRespHandler(resp, that) {
@@ -96,8 +115,12 @@ Page({
         });
         WxParse.wxParse('article', 'html', that.data.article, that, 8);
     },
-    onLoad() {
-        this.loadNews();
+    onLoad(query) {
+        this.loadNews(query);
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        })
     },
     onUnload: function () {
         // 页面销毁时执行

@@ -11,7 +11,8 @@ Page({
         row: 3,
         page: 1,
         showLoadMore: false,
-        isPulldown: false
+        isPulldown: false,
+        rows:['100%','100%','100%','100%','100%','60%','100%','100%','100%','100%','100%','60%','100%','100%','100%','100%','100%','60%','100%','100%','100%','100%','100%','60%']
     },
     showLoading(message) {
         this.setData({
@@ -49,6 +50,7 @@ Page({
             }
         });
     },
+    //监听用户下拉刷新事件
     onPullDownRefresh() {
         this.setData({
             showLoadMore: false,
@@ -57,6 +59,7 @@ Page({
         });
         this.loadNewsListData(true);
     },
+    //监听用户上拉触底事件
     onReachBottom: function () {
         this.setData({
             showLoadMore: true,

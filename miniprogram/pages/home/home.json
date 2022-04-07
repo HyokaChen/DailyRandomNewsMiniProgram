@@ -2,9 +2,10 @@
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 400,
     "usingComponents": {
-        "van-card": "../dist/card/index",
-        "van-loading": "../dist/loading/index",
-        "van-divider": "../dist/divider/index",
-        "x-scroll-view": "../dist/x-scroll-view/x-scroll-view"
+        "van-card": "../../dist/card/index",
+        "van-loading": "../../dist/loading/index",
+        "van-divider": "../../dist/divider/index",
+        "x-scroll-view": "../../dist/x-scroll-view/x-scroll-view",
+        "van-skeleton": "../../dist/skeleton/index"
     }
 }

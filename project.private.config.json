@@ -1,0 +1,24 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "详情页面",
+                    "pathName": "pages/news/news",
+                    "query": "url=https://blog.emptychan.xyz/2021/12/15/2021-12-15-每日随机资讯/&title=2021-12-15-每日随机资讯",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}
